@@ -563,11 +563,8 @@ This may send a notification, play a sound and start a pomodoro break."
   "Is invoked when a pomodoro was killed.
 This may send a notification, play a sound and adds log."
   (org-pomodoro-reset)
-  (org-pomodoro-notify "Pomodoro killed." "One does not simply kill a pomodoro!")
-  (when (org-clocking-p)
-    (if org-pomodoro-keep-killed-pomodoro-time
-        (org-clock-out nil t)
-      (org-clock-cancel)))
+  (org-pomodoro-notify "Pomodoro killed." "")
+  (org-clock-out nil t)
   (run-hooks 'org-pomodoro-killed-hook))
 
 (defun org-pomodoro-short-break-finished ()
